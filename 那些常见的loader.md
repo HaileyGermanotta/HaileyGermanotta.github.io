@@ -11,6 +11,8 @@ Webpack的最终目之一是把代码翻译成浏览器能读懂的语法，load
 
 loader执行包括两个阶段，pitch阶段和normal阶段。Normal阶段，就是大家一般认为的loader对源文件进行转译的阶段。Pitch阶段会先于normal阶段进行，如果loader定义了pitch方法，就会在pitch阶段被执行；如果loader的pitch方法返回了内容，则会跳过后方loader的pitch和normal阶段。
 
+![loader](./loader.jpg)
+
 #### 控制loader的执行顺序
 pitch方法为loader提供了跳过某些执行阶段的能力。
 
