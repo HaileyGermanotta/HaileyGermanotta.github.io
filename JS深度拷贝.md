@@ -8,25 +8,25 @@
 
 ```javascript
 function cloneDeep(obj){
-            if( typeof obj !== 'object' || Object.keys(obj).length === 0 ){
-              //如果进来的不是一个对象，则返回本身
-              //如果进来的obj是一个对象，但是里面没有属性，就返回对象本身
-                return obj
-            }
-            let resultData = {}
-            return recursion(obj, resultData)
-        }
+  if( typeof obj !== 'object' || Object.keys(obj).length === 0 ){
+    //如果进来的不是一个对象，则返回本身
+    //如果进来的obj是一个对象，但是里面没有属性，就返回对象本身
+      return obj
+  }
+  let resultData = {}
+  return recursion(obj, resultData)
+}
 
 function recursion(obj, data={}){
-            for(key in obj){
-                if( typeof obj[key] == 'object' && Object.keys(obj[key]).length>0 )){
-                    data[key] = recursion(obj[key])//采用递归的方法将对象中的对象也拷贝过来
-                }else{
-                    data[key] = obj[key]
-                }
-            }
-            return data
-        }
+  for(key in obj){
+      if( typeof obj[key] == 'object' && Object.keys(obj[key]).length>0 )){
+          data[key] = recursion(obj[key])//采用递归的方法将对象中的对象也拷贝过来
+      }else{
+          data[key] = obj[key]
+      }
+  }
+  return data
+}
 let obj = {name:'程序猿',age:{child:20}}
 let obj2 = cloneDeep(obj)
 obj.name = '单身狗'
